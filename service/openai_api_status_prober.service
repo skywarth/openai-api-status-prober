@@ -1,0 +1,16 @@
+[Unit]
+Description=Run the node.js application for openai-api-status-prober
+After=network.target
+
+[Service]
+Type=simple
+User=<your-user>
+WorkingDirectory=/path/to/your/app
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=your-app
+
+[Install]
+WantedBy=multi-user.target
