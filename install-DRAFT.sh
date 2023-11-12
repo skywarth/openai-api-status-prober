@@ -14,10 +14,10 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Check if Node.js is installed
-if ! command -v node > /dev/null 2>&1; then
-  echo "Node.js is not installed. Please install Node.js before running this script."
-  exit 1
-fi
+#if ! command -v node > /dev/null 2>&1; then
+#  echo "Node.js is not installed. Please install Node.js before running this script."
+#  exit 1
+#fi
 
 # Check if the symlink for the app directory already exists
 if [ ! -L "$APP_SYMLINK" ]; then
