@@ -5,7 +5,7 @@ SERVICE_FILE="openai_api_status_prober.service"
 REPO_PATH="$(pwd)"  # Assumes the script is run from the repo root
 APP_PATH="$REPO_PATH/app"
 SERVICE_PATH="/etc/systemd/system/$SERVICE_FILE"
-APP_SYMLINK="/usr/local/bin/openai_status_prober_app"
+APP_SYMLINK="/usr/local/bin/openai_api_status_prober_app"
 
 # Ensure running as root
 if [ "$EUID" -ne 0 ]; then
