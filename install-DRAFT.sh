@@ -8,10 +8,10 @@ SERVICE_PATH="/etc/systemd/system/$SERVICE_FILE"
 APP_SYMLINK="/usr/local/bin/openai_api_status_prober_app"
 
 # Ensure running as root
-if [ "$EUID" -ne 0 ]; then
-  echo "Please run as root"
-  exit
-fi
+#if [ "$EUID" -ne 0 ]; then
+#  echo "Please run as root"
+#  exit
+#fi
 
 # Check if Node.js is installed
 #if ! command -v node > /dev/null 2>&1; then
