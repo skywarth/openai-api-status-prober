@@ -4,13 +4,13 @@ After=network.target
 
 [Service]
 Type=simple
-User=<your-user>
-WorkingDirectory=/path/to/your/app
-ExecStart=/usr/bin/node server.js
+User=nobody
+WorkingDirectory=/usr/local/bin/openai_status_prober_app  # Symlink to your app directory
+ExecStart=node /usr/local/bin/openai_status_prober_app/server.js  # Path to the Node.js executable and your app's main file
 Restart=on-failure
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=your-app
+SyslogIdentifier=openai_status_prober
 
 [Install]
 WantedBy=multi-user.target
