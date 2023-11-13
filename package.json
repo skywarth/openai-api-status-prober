@@ -1,6 +1,6 @@
 {
   "name": "openai-api-status-prober",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "OpenAI prober/exporter for acquiring API status in prometheus blackbox exporter compliant format.",
   "main": "server.js",
   "scripts": {

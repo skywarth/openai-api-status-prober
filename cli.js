@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
-const { exec } = require('child_process');
+const { execSync,exec } = require('child_process');
 const packageJson = require('./package.json'); // Make sure the path to package.json is correct
+const path = require('path');
+
 
 function executeCommand(command) {
     exec(command, (error, stdout, stderr) => {
@@ -29,7 +31,19 @@ function showVersion() {
     console.log(`openai-api-status-prober version: ${packageJson.version}`);
 }
 
+function getGlobalPath() {
+    /*// Use NPM to get the path of the global node_modules directory
+    const globalNodeModules = execSync('npm root -g').toString().trim();
+    // Construct the path to where the server.js file should be located
+    return path.join(globalNodeModules, 'openai-api-status-prober', 'server.js');*/
+    const relativePathToServer = './server.js';
+    const serverPath = path.join(__dirname, relativePathToServer);
+    return serverPath;
+}
+
 async function main() {
+
+    const serverPath = getGlobalPath();
     const args = process.argv.slice(2);
 
     // Check for the version flag
@@ -46,7 +60,7 @@ async function main() {
         //TODO refactor this whole cursed file
         switch (command) {
             case 'start':
-                executeCommand('pm2 start server.js --name openai-api-status-prober');//TODO handle already running
+                execSync(`pm2 start ${serverPath} --name openai-api-status-prober`, { stdio: 'inherit' });
                 break;
             case 'stop':
                 executeCommand('pm2 stop openai-api-status-prober'); //TODO: refactor package names, use const
