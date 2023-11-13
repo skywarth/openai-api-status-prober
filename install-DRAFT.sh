@@ -28,9 +28,9 @@ else
 fi
 
 # Install Node.js dependencies in the app directory
-cd "$APP_PATH" || exit
-echo "Installing Node.js dependencies..."
-npm install
+#cd "$APP_PATH" || exit
+#echo "Installing Node.js dependencies..."
+#npm install
 
 # Copy the service file to the systemd directory
 if [ ! -f "$SERVICE_PATH" ]; then
