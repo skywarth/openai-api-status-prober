@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = process.env.LISTENING_PORT || 9090;
+const port = process.env.LISTENING_PORT || 9091;
 const endpoints= {
     _root:process.env.LISTENING_ENDPOINT_ROOT || '/open-ai-status-prober',
     simplified_status:process.env.LISTENING_ENDPOINT_SIMPLIFIED_STATUS || '/simplified_status'
