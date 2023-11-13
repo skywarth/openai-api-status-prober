@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preuninstall": "openai-api-status-prober detach"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
     "axios": "^1.6.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2"
+  },
+  "bin": {
+    "openai-api-status-prober": "./cli.js"
   }
 }
