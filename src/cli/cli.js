@@ -37,7 +37,7 @@ function executeCommand(command) {
                 console.info(`Env path is: ${cliUtils.getEnvPath()}`)
                 break;
             case 'start':
-                execSync(`pm2 start ${serverPath} --name ${packageName}`, { stdio: 'inherit' });
+                execSync(`pm2 start ${serverPath} --name ${packageName} --watch`, { stdio: 'inherit' });
                 execSync(`pm2 save`);
                 console.warn('Also run `pm2 startup`!');
                 break;

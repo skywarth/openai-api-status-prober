@@ -2,10 +2,11 @@
   "name": "openai-api-status-prober",
   "version": "0.0.4",
   "description": "OpenAI prober/exporter for acquiring API status in prometheus blackbox exporter compliant format.",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preuninstall": "openai-api-status-prober detach"
+    "preuninstall": "openai-api-status-prober detach",
+    "dev": "node src/server.js"
   },
   "keywords": [
     "openai",
@@ -26,6 +27,6 @@
     "express": "^4.18.2"
   },
   "bin": {
-    "openai-api-status-prober": "./cli/cli.js"
+    "openai-api-status-prober": "./src/cli/cli.js"
   }
 }

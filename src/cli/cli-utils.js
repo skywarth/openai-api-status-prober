@@ -1,6 +1,7 @@
 
-const packageJson = require('../package.json'); // Make sure the path to package.json is correct
+const packageJson = require('../../package.json'); // Make sure the path to package.json is correct
 const path = require('path');
+const {exec } = require('child_process');
 
 class CliUtils{
 
@@ -16,7 +17,7 @@ class CliUtils{
 
     isServingUtilityInstalled() {
         return new Promise((resolve, reject) => {
-            exec('pm2 -v', (error, stdout, stderr) => {
+            exec('pm2 -v', (error) => {
                 if (error) {
                     reject(new Error('PM2 is not installed globally. Please install it by running: npm install -g pm2'));
                 } else {
@@ -32,7 +33,7 @@ class CliUtils{
 
     getAppRoot() {
 
-        return path.join(__dirname, "../")
+        return path.join(__dirname, "../../")
     }
 
     getServerPath() {
@@ -40,7 +41,7 @@ class CliUtils{
         const globalNodeModules = execSync('npm root -g').toString().trim();
         // Construct the path to where the server.js file should be located
         return path.join(globalNodeModules, 'openai-api-status-prober', 'server.js');*/
-        const relativePathToServer = './server.js';
+        const relativePathToServer = './src/server.js';
         const appRoot=this.getAppRoot();
         return  path.join(appRoot, relativePathToServer);
     }
