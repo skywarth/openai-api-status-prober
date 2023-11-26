@@ -47,6 +47,10 @@ app.get(generateEndpoint(endpoints.simplified_status), async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.send(`OpenAI API Status Prober up and running at port: ${req.socket.localPort??'unknown'}`)
+})
+
 app.listen(port, () => {
     console.log(`Custom exporter listening at http://localhost:${port}`);
 });
@@ -74,3 +78,6 @@ function response(expressJSResponse,statusLabel,httpStatus,indicator=null,openAi
     return expressJSResponse.status(httpStatus).json(response);
 
 }
+
+
+module.exports = app;
