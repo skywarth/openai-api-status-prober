@@ -1,5 +1,10 @@
 # OpenAI API Status Prober
 
+[![npm version](https://badge.fury.io/js/openai-api-status-prober.svg)](https://badge.fury.io/js/openai-api-status-prober)
+![npm](https://img.shields.io/npm/dt/openai-api-status-prober)
+
+
+
 This is a simple web service that you can use to probe openAI API status and integrate it into your prometheus server.
 
 See it in action:
