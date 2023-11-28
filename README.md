@@ -2,15 +2,19 @@
 
 This is a simple web service that you can use to probe openAI API status and integrate it into your prometheus server.
 
+See it in action:
 https://openai-api-status-prober.onrender.com/open-ai-status-prober/simplified_status
 
-//TODO: add screenshots from Prometheus and Grafana here
+![Prometheus Server Dashboard Target](img/prometheus.png)
+![Grafana Blackbox exporter Dashboard](img/grafana.png)
+
 
 ## Table of Contents
 
 - [Why](#why)
 - [Installation](#installation)
 - [Integrating into Prometheus Server](#integrating-into-prometheus-server)
+- [CLI Commands](#cli-commands)
 
 ## Why?
 
@@ -191,3 +195,42 @@ Personally, I find this Grafana Dashboard setup to be rather enjoyable, so I can
 https://grafana.com/grafana/dashboards/13659-blackbox-exporter-http-prober/
 
 The `prometheus.yml` configuration I've provided above also fits nicely for this dashboard.
+
+
+## CLI commands
+
+This small app comes packed with some cli commands. These commands are tailored for global installation. Here's the list:
+
+### Start server
+
+Starts the express.js server via `pm2`, also saves the current PM2 config by issuing `pm2 save`
+
+`openai-api-status-prober start`
+
+### Stop server
+
+Stop the server, and save the current state of PM2. Keeps the current tab/job in the PM2, only stops it.
+
+`openai-api-status-prober stop`
+
+
+### Remove server
+
+Remove the server from PM2 job configuration and save the current PM2 config. 
+
+Use this if you would like to remove the running job/thread for the app
+
+`openai-api-status-prober detach`
+
+
+### Version
+
+Outputs package version
+
+`openai-api-status-prober -v` or `openai-api-status-prober --version`
+
+### Env path
+
+Outputs the env path for the package
+
+`openai-api-status-prober env-path`
