@@ -33,12 +33,15 @@ app.get(generateEndpoint(endpoints.simplified_status), async (req, res) => {
         let errorBag=[];
         if(error instanceof AxiosError){
             //res.status(500).send('Error fetching OpenAI status');
-            errorBag.push('Error fetching OpenAI status');
+            errorBag.push({
+                msg:'Error fetching OpenAI status.',
+                stack:error.stack
+            });
         }else{
-            errorBag.push(
-                `Unexpected error occurred: ${error.message}. 
-                ST: ${error.stack}
-            `);
+            errorBag.push({
+                msg:`Unexpected error occurred: ${error.message}.`,
+                stack:error.stack
+            });
         }
 
         response(res,'error',500,null,apiStatusResponse,errorBag);

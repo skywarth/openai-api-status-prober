@@ -1,6 +1,6 @@
 {
   "name": "openai-api-status-prober",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "OpenAI prober/exporter for acquiring API status in prometheus blackbox exporter compliant format.",
   "main": "src/server.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "monitoring"
   ],
   "author": "skywarth",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^1.6.1",
     "dotenv": "^16.3.1",
