@@ -28,5 +28,8 @@
   },
   "bin": {
     "openai-api-status-prober": "./src/cli/cli.js"
+  },
+  "engines": {
+    "node": ">= 18"
   }
 }
